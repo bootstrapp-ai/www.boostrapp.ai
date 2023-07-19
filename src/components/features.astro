@@ -1,0 +1,79 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon";
+
+const ServerlessCMS = {
+  header: {
+    title: "Bootstrapp: Launch your Dreams!",
+    description:
+      "Bootstrapp is your go-to platform for transforming ideas into reality - quickly, affordably, and with top-tier quality, thanks to the power of AI.",
+  },
+  features: [
+    {
+      title: "For Everyone",
+      description:
+        "Don't be restricted by technical jargon. At Bootstrapp, you are empowered to create using the tools you're comfortable with.",
+      icon: "bx:bxs-briefcase",
+    },
+    {
+      title: "Quick Launch",
+      description:
+        "Say goodbye to lengthy setups. With Bootstrapp, you're just a few clicks away from launching your product into the world.",
+      icon: "bx:bxs-window-alt",
+    },
+    {
+      title: "Grow with Confidence",
+      description:
+        "Don't fear the growth! Bootstrapp automatically scales your projects, ensuring they can handle any level of demand.",
+      icon: "bx:bxs-data",
+    },
+    {
+      title: "Safe and Secure",
+      description:
+        "Sleep soundly knowing your dreams are protected. Bootstrapp incorporates top security practices to keep your creations safe.",
+      icon: "bx:bxs-bot",
+    },
+    {
+      title: "Keep Track of Everything",
+      description:
+        "Stay in the know about your project's performance. Bootstrapp provides real-time insights for better decision making.",
+      icon: "bx:bxs-file-find",
+    },
+    {
+      title: "Join the Community",
+      description:
+        "Be a part of an enthusiastic community of dreamers like you. Share ideas, learn, and grow together with Bootstrapp.",
+      icon: "bx:bxs-user",
+    },
+  ],
+};
+---
+
+<div class="my-10">
+  <h2 class="dark:text-white text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    {ServerlessCMS.header.title}
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 dark:text-gray-300">
+    {ServerlessCMS.header.description}
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-13 gap-16">
+  {
+    ServerlessCMS.features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black dark:bg-white rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white dark:text-gray-900" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg dark:text-white mb-10">
+            {item.title}
+          </h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed dark:text-gray-300 mb-10">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>

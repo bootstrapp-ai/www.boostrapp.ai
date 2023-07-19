@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Import text data from ServerlessCMS (replace with actual import method if different)
+const ServerlessCMS = {
+  title: "About Bootstrapp.ai",
+  h2Title: "Empowering the world with Bootstrapp.ai",
+  desc: "One person, One AI, Infinite Possibilities.",
+  body: "We're here to democratize the digital creation process, enabling anyone, regardless of their tech background, to breathe life into their ideas rapidly. We help people who never designed in life to have a very good web design, and people who never coded to have a state-of-the-art website.",
+};
+---
+
+<Layout title={ServerlessCMS.title}>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{ServerlessCMS.title}</Fragment>
+      <Fragment slot="desc">{ServerlessCMS.desc}</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        {ServerlessCMS.h2Title}
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        {ServerlessCMS.body}
+      </p>
+    </div>
+  </Container>
+</Layout>

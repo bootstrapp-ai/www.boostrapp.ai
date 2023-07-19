@@ -1,0 +1,152 @@
+---
+import { Tick } from "@components/ui/icons";
+import Link from "@components/ui/link.astro";
+
+const ServerlessCMS = {
+  text: {
+    title: "Pricing & Plans",
+    description:
+      "Every account comes with: Unlimited public projects, unlimited websites & pages, unlimited subscribers, and the ability to send 50 emails/day. Ads will be placed after the 2nd page created.",
+    cta: "Need more? Check out our plans:",
+    multiplePlansInfo:
+      "Do you need more? You can get multiple plans, like 1 personal plan, 2 businesses, or any combination.",
+  },
+  pricing: [
+    {
+      name: "Free",
+      price: undefined,
+      popular: false,
+      features: [
+        "Unlimited public projects",
+        "Unlimited websites & pages",
+        "Unlimited newsletter contacts",
+        "Ads after 2th page created",
+      ],
+      button: {
+        text: "Get Started",
+        link: "/",
+      },
+    },
+    {
+      name: "Personal",
+      price: "$3.00/month",
+      popular: false,
+      features: [
+        "all free features",
+        "1 Private Project",
+        "1 Custom domain",
+        "Send 50 emails/day",
+        "Receive unlimited emails",
+      ],
+      button: {
+        text: "Get Started",
+        link: "#",
+      },
+    },
+    {
+      name: "Business",
+      price: "$30.00/month",
+      popular: true,
+      features: [
+        "all personal features",
+        "5 private projects",
+        "Up to 5 custom domains",
+        "Send 5,000 emails/month",
+        "Ad-free experience",
+      ],
+      button: {
+        text: "Get Started",
+        link: "/pro",
+      },
+    },
+    {
+      name: "Professional",
+      price: "$300.00/month",
+      popular: false,
+      features: [
+        "all business features",
+        "Unlimited private projects",
+        "Unlimited custom domains",
+        "Up to 100,000 emails/month",
+        "Real-Time Analytics",
+        "Premium Template Access",
+      ],
+      button: {
+        text: "Get Started",
+        link: "/pro",
+      },
+    },
+  ],
+};
+---
+
+<div>
+  <div class="my-15 md:my-10">
+    <h2
+      class="text-center dark:text-white text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      {ServerlessCMS.text.title}
+    </h2>
+    <p class="text-lg mt-4 text-slate-600 dark:text-gray-300">
+      {ServerlessCMS.text.description}
+    </p>
+    <div
+      class="text-red-500 text-center text-lg font-semibold dark:text-pink-200 mt-10">
+      {ServerlessCMS.text.cta}
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5 mx-auto max-w-screen-lg">
+    {
+      ServerlessCMS.pricing.map(
+        (plan) =>
+          plan.price && (
+            <div>
+              <div class="flex flex-col w-full order-first lg:order-none border-2 border-[#D8DEE9] border-opacity-50 py-5 px-6 rounded-md">
+                <h3 class="text-lg font-medium text-gray-400 dark:text-gray-200 text-center">
+                  {plan.name}
+                </h3>
+                <p class="text-center mt-3 text-3xl font-bold text-gray-300 md:text-3xl dark:text-pink-100">
+                  {plan.price}
+                </p>
+                <ul class="grid mt-8 text-left gap-y-4">
+                  {plan.features.map((item) => (
+                    <li class="flex items-start gap-3 text-gray-800 dark:text-white">
+                      <Tick class="w-6 h-6" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <>
+                  <div class="text-center">
+                    {plan.price.original && (
+                      <p class="mt-1 text-xl font-medium text-gray-400 dark:text-white line-through md:text-2xl">
+                        {plan.price.original}
+                      </p>
+                    )}
+                  </div>
+                  <div class="flex mt-8">
+                    <Link
+                      href={plan.button.link || "#"}
+                      block
+                      style={plan.popular ? "primary" : "outline"}
+                      class={
+                        plan.popular
+                          ? "dark:bg-pink-600 dark:text-white font-bold text-2xl"
+                          : "dark:bg-pink-200 dark:text-black"
+                      }>
+                      {plan.button.text || "Get Started"}
+                    </Link>
+                  </div>
+                </>
+              </div>
+            </div>
+          )
+      )
+    }
+  </div>
+
+  <p
+    class="mt-20 text-center text-xl font-medium text-gray-400 dark:text-white">
+    {ServerlessCMS.text.multiplePlansInfo}
+  </p>
+</div>

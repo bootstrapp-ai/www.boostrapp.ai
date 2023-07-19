@@ -1,0 +1,52 @@
+---
+import { Picture } from "@astrojs/image/components";
+import heroImage from "assets/hero.png";
+import Link from "@components/ui/link.astro";
+
+const ServerlessCMS = {
+  main: {
+    heroImage: "assets/hero.png",
+    title: "The fastest way to launch a project",
+    description:
+      "Leverage our AI platform for a quick journey from concept to client acquisition. Bootstrapp simplifies design and web development, focusing on getting your project online swiftly. We offer the quickest, simplest route to market, turning ideas into client-ready solutions in no time.",
+    link: {
+      href: "https://app.bootstrapp.ai/",
+      text: "Launch for FREE",
+    },
+  },
+};
+---
+
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block">
+    <Picture
+      src={heroImage}
+      alt="Astronaut in the air"
+      widths={[200, 400, 600]}
+      aspectRatio="4:3"
+      sizes="(max-width: 800px) 100vw, 620px"
+      loading="eager"
+      format="avif"
+    />
+  </div>
+  <div>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-semibold lg:tracking-tight xl:tracking-tighter dark:text-white">
+      {ServerlessCMS.main.title}
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl dark:text-gray-300">
+      {ServerlessCMS.main.description}
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        size="lg"
+        style="outline"
+        href={ServerlessCMS.main.link.href}
+        class="flex gap-1 font-extrabold items-center justify-center"
+        rel="noopener">
+        {ServerlessCMS.main.link.text}
+      </Link>
+    </div>
+  </div>
+</main>

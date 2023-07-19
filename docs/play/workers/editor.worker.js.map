@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/editor/workers/editor.ts"],
+  "sourcesContent": ["// export * from \"../../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js\";\n\n/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.\n *--------------------------------------------------------------------------------------------*/\n// import { initialize } from \"../util/worker-init\";\n\n// The Editor worker is really not nesscary, so, I set it up to be self terminating \nconst connect = (port) => {\n  console.log('Empty Editor Worker');\n  self.close();\n\n  // let initialized = false;\n  // port.onmessage = (e) => {\n  //     // Ignore first message in this case and initialize if not yet initialized\n  //     if (!initialized) {\n  //         initialize(null, port, initialized);\n  //     }\n  // };\n}\n\n// @ts-ignore\nself.onconnect = (e) => {\n  let [port] = e.ports;\n  connect(port)\n}\n\nif (!(\"SharedWorkerGlobalScope\" in self)) {\n  connect(self);\n}\n\nexport { };"],
+  "mappings": "MASA,GAAM,GAAU,AAAC,GAAS,CACxB,QAAQ,IAAI,qBAAqB,EACjC,KAAK,MAAM,CASb,EAGA,KAAK,UAAY,AAAC,GAAM,CACtB,GAAI,CAAC,GAAQ,EAAE,MACf,EAAQ,CAAI,CACd,EAEA,AAAM,2BAA6B,OACjC,EAAQ,IAAI",
+  "names": []
+}

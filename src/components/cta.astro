@@ -1,0 +1,32 @@
+---
+import Link from "./ui/link.astro";
+
+const ServerlessCMS = {
+  cta: {
+    title: "Start Building Instantly",
+    description:
+      "Take your project from concept to online presence in record time with Bootstrapp. Harness the power of our modern serverless platform and give your project the boost it deserves.",
+    link: "#",
+    linkLabel: "Launch Your Project Now",
+  },
+};
+---
+
+<div
+  class="bg-black p-8 md:px-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
+  <h2
+    class="text-white dark:text-gray-300 text-4xl md:text-5xl md:my-2 tracking-tight">
+    {ServerlessCMS.cta.title}
+  </h2>
+  <p class="text-slate-400 dark:text-white mt-4 text-lg md:text-xl">
+    {ServerlessCMS.cta.description}
+  </p>
+  <div class="flex mt-5">
+    <Link
+      href={ServerlessCMS.cta.link}
+      style="inverted"
+      class="dark:bg-pink-600 dark:text-white font-bold md:my-5">
+      {ServerlessCMS.cta.linkLabel}
+    </Link>
+  </div>
+</div>
